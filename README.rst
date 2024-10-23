@@ -81,7 +81,6 @@ Add the following lines:
 
     </VirtualHost>
 
-.conf perso
 .. code-block:: bash
 
     <VirtualHost *:80>
