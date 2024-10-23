@@ -81,6 +81,37 @@ Add the following lines:
 
     </VirtualHost>
 
+.conf perso
+.. code-block:: bash
+
+    <VirtualHost *:80>
+        ServerAdmin miantamag@gmail.com
+        ServerName django-map.miantsebastien.com
+        DocumentRoot /home/django/myproject
+    
+        <Directory /home/django/myproject>
+            AllowOverride All
+            Require all granted
+            Options FollowSymLinks
+            Allow from all
+        </Directory>
+    
+        <Directory /home/django/myproject/djangoProjet>
+            <Files wsgi.py>
+                Require all granted
+            </Files>
+        </Directory>
+    
+        WSGIDaemonProcess djangoProject_OSM python-home=/home/django/myproject/venv python-path=/home/django/djangoProject_OSM
+        WSGIProcessGroup djangoProject_OSM
+        WSGIScriptAlias / /home/django/myproject/djangoProjet/wsgi.py
+    
+        WSGIPassAuthorization On
+    
+        ErrorLog ${APACHE_LOG_DIR}/djangoProject_OSM_error.log
+        CustomLog ${APACHE_LOG_DIR}/djangoProject_OSM_access.log combined
+    </VirtualHost>
+
 
     
 7) Modify settings.py:
