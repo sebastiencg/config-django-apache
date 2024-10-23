@@ -86,7 +86,7 @@ Add the following lines:
 .. code-block:: bash
 
     <VirtualHost *:80>
-        ServerAdmin miantamag@gmail.com
+        ServerAdmin fakemail@gmail.com
         ServerName django-map.miantsebastien.com
         DocumentRoot /home/django/myproject
     
